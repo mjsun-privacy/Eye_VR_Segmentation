@@ -302,9 +302,9 @@ if __name__ == '__main__':
     print('Loading dataset. ', str(datetime.datetime.now()))
     # root_path = './Semantic_Segmentation_Dataset/'
     if os.name == 'nt':
-        root_path = 'C:/Semantic_Segmentation_Dataset/'
+        root_path = 'openEDS/openEDS/'   #'C:/Semantic_Segmentation_Dataset/'
     else:
-        root_path = './Semantic_Segmentation_Dataset/'
+        root_path = 'openEDS/openEDS/'     #'./Semantic_Segmentation_Dataset/'
 
     cfg = dict()
     cfg['batch_size'] = 64
@@ -478,3 +478,4 @@ if __name__ == '__main__':
     print('End of training, ', str(datetime.datetime.now()))
 
     #experiment.end()
+# python src/train.py --dir openEDS/openEDS/train/ --opt adam --batch_size 8 --epochs 1 --save_freq 10 --eval_freq 5 --lr_init 0.001 --resume checkpoint/model_full.pt
