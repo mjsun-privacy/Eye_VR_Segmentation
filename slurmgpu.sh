@@ -11,17 +11,10 @@
 export PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True
 
 
-COMMAND='source /storage/homefs/ms23h901/git/Eye_VR_Segmentation/.venv/bin/activate'
-echo $COMMAND
+source /storage/homefs/ms23h901/git/ye_VR_Segmentation/.venv/bin/activate
 
-export PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True
+echo "Running Python script: python src/train.py --dir openEDS/openEDS/train/ --opt adam --batch_size 8 --epochs 1"    # $SLURM_ARRAY_TASK_ID
 
+srun --unbuffered python -u src/train.py --dir openEDS/openEDS/train/ --opt adam --batch_size 8 --epochs 1
 
-COMMAND="python python src/train.py --dir openEDS/openEDS/train/ --opt adam --batch_size 8 --epochs 1"  # $SLURM_ARRAY_TASK_ID
-echo $COMMAND
-
-$COMMAND
-
-COMMAND='deactivate'
-echo $COMMAND
-$COMMAND
+deactivate

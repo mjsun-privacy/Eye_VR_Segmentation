@@ -257,6 +257,11 @@ def get_mean_std(data_loader, device):
 
 
 if __name__ == '__main__':
+
+    # real time output logging on HPC
+    print("Starting the main process...")
+    sys.stdout.flush()
+
     parser = argparse.ArgumentParser(description='Eye Segmentation - SGD/SWA training')
     parser.add_argument('--dir', type=str, default=None, required=True, help='training directory (default: None)')
     parser.add_argument('--opt', type=str, default=None, required=True, help='Optimizer: Adam or SGD (default: None)')
